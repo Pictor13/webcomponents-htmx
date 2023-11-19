@@ -11,21 +11,19 @@ class EmojiLotteryElement extends HTMLButtonElement {
 
   connectedCallback() {
     this.innerText = this.tpl`${this.emoji}`
-    this.addEventListener("click", this.increment);
+    this.addEventListener("click", this.randomEmoji);
   }
 
   disconnectedCallback() {
-    this.removeEventListener("click", this.increment);
+    this.removeEventListener("click", this.randomEmoji);
   }
 
-  increment() {
-    this.emoji = this.randomEmoji();
-    this.innerHTML = this.tpl`${this.emoji}`;
-  }
-
-  randomEmoji() {
-    const offset = Math.floor(Math.random() * (128397 - 127000) + 127000); // Randomly select an offset within the emoji range
-    return String.fromCodePoint(offset);
+  async randomEmoji() {
+    fetch('/emoji/lottery')
+      .then(response => response.text())
+      .then(data => this.innerHTML = this.tpl`${data}`)
+      .catch(error => console.error('Error:', error)
+    );
   }
 }
 
