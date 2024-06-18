@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../bo/masterportal"
+		},
+		{
+			"path": "../../bo/masterportalapi"
+		},
+		{
+			"path": "../../bo/stadtplan"
+		}
+	],
+	"settings": {}
+}

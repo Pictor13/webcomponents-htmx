@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
     </head>
     <body>
+        <button is="rom-counter">count</button>
+
+        <button is="be-emoji-lottery"></button>
+
+        <!-- Templates -->
+        <template id="emoji-lottery">
+            Here an emoji for you <span>{{emoji}}</span>
+        </template>
+
         <script async src="components/my-component.js"></script>
         <script async src="backend-api/components/get-emoji.js"></script>
-        <button is="rom-counter">count</button>
-        <button is="be-emoji-lottery">🙂</button>
     </body>
 </html>
